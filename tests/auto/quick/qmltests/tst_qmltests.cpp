@@ -1,5 +1,5 @@
 // Copyright (C) 2021 The Qt Company Ltd.
-// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR GPL-3.0-only WITH Qt-GPL-exception-1.0
+// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR GPL-3.0-only
 
 #include <httpserver.h>
 
@@ -18,6 +18,8 @@
 #include <QtWebEngineQuick/qquickwebengineprofile.h>
 #include <QtWebEngineQuick/qtwebenginequickglobal.h>
 #include <qt_webengine_quicktest.h>
+
+#include <cstdio>
 
 #if defined(Q_OS_LINUX) && defined(QT_DEBUG)
 #include <fcntl.h>
@@ -75,7 +77,7 @@ static void stackTrace()
 
     fprintf(stderr, "\n========= Received signal, dumping stack ==============\n");
     char cmd[512];
-    qsnprintf(cmd, 512, "gdb --pid %d 2>/dev/null <<EOF\n"
+    std::snprintf(cmd, 512, "gdb --pid %d 2>/dev/null <<EOF\n"
                         "set prompt\n"
                         "set height 0\n"
                         "thread apply all where full\n"

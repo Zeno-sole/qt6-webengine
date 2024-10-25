@@ -112,7 +112,9 @@ RemoteFrame::RemoteFrame(
             insert_type,
             frame_token,
             devtools_frame_token,
-            MakeGarbageCollected<RemoteWindowProxyManager>(*this),
+            MakeGarbageCollected<RemoteWindowProxyManager>(
+                page.GetAgentGroupScheduler().Isolate(),
+                *this),
             inheriting_agent_factory),
       // TODO(samans): Investigate if it is safe to delay creation of this
       // object until a FrameSinkId is provided.
@@ -134,7 +136,7 @@ RemoteFrame::RemoteFrame(
   dom_window_ = MakeGarbageCollected<RemoteDOMWindow>(*this);
 
   DCHECK(task_runner_);
-  remote_frame_host_remote_.Bind(std::move(remote_frame_host));
+  remote_frame_host_remote_.Bind(std::move(remote_frame_host), task_runner_);
   receiver_.Bind(std::move(receiver), task_runner_);
 
   UpdateInertIfPossible();
@@ -157,6 +159,9 @@ void RemoteFrame::DetachAndDispose() {
 void RemoteFrame::Trace(Visitor* visitor) const {
   visitor->Trace(view_);
   visitor->Trace(security_context_);
+  visitor->Trace(remote_frame_host_remote_);
+  visitor->Trace(receiver_);
+  visitor->Trace(main_frame_receiver_);
   Frame::Trace(visitor);
 }
 
@@ -255,7 +260,11 @@ void RemoteFrame::Navigate(FrameLoadRequest& frame_request,
   auto params = mojom::blink::OpenURLParams::New();
   params->url = url;
   params->initiator_origin = request.RequestorOrigin();
-  params->initiator_base_url = frame_request.GetRequestorBaseURL();
+  if (features::IsNewBaseUrlInheritanceBehaviorEnabled() &&
+      (url.IsAboutBlankURL() || url.IsAboutSrcdocURL()) &&
+      !frame_request.GetRequestorBaseURL().IsEmpty()) {
+    params->initiator_base_url = frame_request.GetRequestorBaseURL();
+  }
   params->post_body =
       blink::GetRequestBodyForWebURLRequest(WrappedResourceRequest(request));
   DCHECK_EQ(!!params->post_body, request.HttpMethod().Utf8() == "POST");
@@ -302,6 +311,7 @@ void RemoteFrame::Navigate(FrameLoadRequest& frame_request,
 
   params->initiator_activation_and_ad_status =
       GetNavigationInitiatorActivationAndAdStatus(request.HasUserGesture(),
+                                                  initiator_frame_is_ad,
                                                   is_ad_script_in_stack);
 
   params->is_container_initiated = frame_request.IsContainerInitiated();
@@ -310,12 +320,10 @@ void RemoteFrame::Navigate(FrameLoadRequest& frame_request,
 
 bool RemoteFrame::NavigationShouldReplaceCurrentHistoryEntry(
     WebFrameLoadType frame_load_type) const {
-  // Portal and Fenced Frame contexts do not create back/forward entries.
+  // Fenced Frame contexts do not create back/forward entries.
   // TODO(https:/crbug.com/1197384, https://crbug.com/1190644): We may want to
   // support a prerender in RemoteFrame.
-  return (frame_load_type == WebFrameLoadType::kStandard &&
-          GetPage()->InsidePortal()) ||
-         IsInFencedFrameTree();
+  return IsInFencedFrameTree();
 }
 
 bool RemoteFrame::DetachImpl(FrameDetachType type) {
@@ -876,8 +884,7 @@ bool RemoteFrame::IsIgnoredForHitTest() const {
   if (!owner || !owner->GetLayoutObject())
     return false;
 
-  return owner->OwnerType() == FrameOwnerElementType::kPortal ||
-         !visible_to_hit_testing_;
+  return !visible_to_hit_testing_;
 }
 
 void RemoteFrame::AdvanceFocus(mojom::blink::FocusType type,
@@ -1100,6 +1107,11 @@ void RemoteFrame::CreateRemoteChild(
       token, opener_frame_token, tree_scope_type, std::move(replication_state),
       std::move(owner_properties), is_loading, devtools_frame_token,
       std::move(remote_frame_interfaces));
+}
+
+void RemoteFrame::CreateRemoteChildren(
+    Vector<mojom::blink::CreateRemoteChildParamsPtr> params) {
+  Client()->CreateRemoteChildren(params);
 }
 
 }  // namespace blink

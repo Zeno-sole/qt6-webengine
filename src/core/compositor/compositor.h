@@ -22,7 +22,7 @@ namespace QtWebEngineCore {
 //
 // Used by quick/widgets libraries for accessing the frames and
 // controlling frame swapping.
-class Q_WEBENGINECORE_PRIVATE_EXPORT Compositor
+class Q_WEBENGINECORE_EXPORT Compositor
 {
     struct Binding;
 
@@ -30,9 +30,8 @@ public:
     // Identifies the implementation type.
     enum class Type {
         Software,
-        OpenGL,
-        Vulkan,
-        NativeBuffer
+        OpenGL, // TODO: Legacy, remove it with DisplaySkiaOutputDevice!
+        Native
     };
 
     // Identifies a compositor.
@@ -76,7 +75,7 @@ public:
     // Observes the compositor corresponding to the given id.
     //
     // Only one observer can exist per compositor.
-    class Q_WEBENGINECORE_PRIVATE_EXPORT Observer
+    class Q_WEBENGINECORE_EXPORT Observer
     {
     public:
         // Binding to compositor
@@ -134,7 +133,7 @@ public:
     virtual bool textureIsFlipped();
 
     // Release resources created in texture()
-    virtual void releaseResources(QQuickWindow *win);
+    virtual void releaseResources();
 
 protected:
     Compositor(Type type) : m_type(type) { }

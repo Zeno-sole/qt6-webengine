@@ -1,5 +1,5 @@
 // Copyright (C) 2019 The Qt Company Ltd.
-// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR GPL-3.0-only WITH Qt-GPL-exception-1.0
+// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR GPL-3.0-only
 #include <httpsserver.h>
 #include <util.h>
 
@@ -19,6 +19,7 @@ private Q_SLOTS:
     void handleError_data();
     void handleError();
     void fatalError();
+    void resourceError();
 };
 
 struct PageWithCertificateErrorHandler : QWebEnginePage
@@ -128,6 +129,21 @@ void tst_CertificateError::fatalError()
         // Fatal certificate errors are implicitly rejected. But second call should not cause crash.
         page.error->rejectCertificate();
     }
+}
+
+void tst_CertificateError::resourceError()
+{
+    PageWithCertificateErrorHandler page(false, false);
+    page.settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled, false);
+
+    page.setHtml("<img src=\"https://expired.badssl.com\">");
+    if (!page.loadSpy.wait(10000)) {
+        QVERIFY2(!page.error, "There shouldn't be any certificate error if not loaded due to missing internet access!");
+        QSKIP("Couldn't load page from network, skipping test.");
+    }
+
+    QTRY_VERIFY(page.error);
+    QCOMPARE(page.error->isMainFrame(), false);
 }
 
 QTEST_MAIN(tst_CertificateError)

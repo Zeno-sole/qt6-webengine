@@ -80,11 +80,6 @@ void ChildFrameCompositingHelper::UpdateVisibility(bool visible) {
   }
 }
 
-gfx::Rect ChildFrameCompositingHelper::PaintableRegion() const {
-  DCHECK(crash_ui_layer_);
-  return gfx::Rect(crash_ui_layer_->bounds());
-}
-
 scoped_refptr<cc::DisplayItemList>
 ChildFrameCompositingHelper::PaintContentsToDisplayList() {
   DCHECK(crash_ui_layer_);
@@ -112,7 +107,7 @@ ChildFrameCompositingHelper::PaintContentsToDisplayList() {
 
       auto image = cc::PaintImageBuilder::WithDefault()
                        .set_id(cc::PaintImage::GetNextId())
-                       .set_image(SkImage::MakeFromBitmap(*sad_bitmap),
+                       .set_image(SkImages::RasterFromBitmap(*sad_bitmap),
                                   cc::PaintImage::GetNextContentId())
                        .TakePaintImage();
       display_list->push<cc::DrawImageOp>(image, x, y);
