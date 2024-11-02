@@ -1,3 +1,9 @@
+qt6-webengine (6.8.0-0deepin1) UNRELEASED; urgency=medium
+
+  * fix build error
+
+ -- lichenggang <lichenggang@deepin.org>  Sun, 03 Nov 2024 02:22:09 +0800
+
 qt6-webengine (6.8.0-0deepin) unstable; urgency=medium
 
   * New upstream release (6.8.0).

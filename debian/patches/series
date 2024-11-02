@@ -1,9 +1,9 @@
 # remove catapult
-remove_catapult_3rdparty.patch
-remove_catapult_core.patch
+#remove_catapult_3rdparty.patch
+#remove_catapult_core.patch
 
 # reduce debugging info
-reduce_debugging_info.patch
+#reduce_debugging_info.patch
 
 # rewrite compressing files in devtools-frontend
 compressing_files.patch
@@ -12,18 +12,18 @@ compressing_files.patch
 support-i386.patch
 
 # enable support for riscv64
-riscv-angle.patch
-riscv-base.patch
-riscv-crashpad.patch
-riscv-dav1d.patch
-riscv-libgav1.patch
+#riscv-angle.patch
+#riscv-base.patch
+#riscv-crashpad.patch
+#riscv-dav1d.patch
+#riscv-libgav1.patch
 # old libyuv, no rvv support
 # riscv-libyuv.patch
-riscv-sandbox.patch
-riscv-ffmpeg-script.patch
-riscv-ffmpeg-generated.patch
-riscv-ffmpeg-generated-files.patch
-riscv-hack-devtools-remove-terser.patch
+#riscv-sandbox.patch
+#riscv-ffmpeg-script.patch
+#riscv-ffmpeg-generated.patch
+#riscv-ffmpeg-generated-files.patch
+#riscv-hack-devtools-remove-terser.patch
 
 # enable support for loong64
 #
@@ -32,4 +32,5 @@ riscv-hack-devtools-remove-terser.patch
 #
 # loong64.patch
 
-Add-missing-dependencies-to-avoid-compilation-errors.patch
+#Add-missing-dependencies-to-avoid-compilation-errors.patch
+remove-werror.patch
