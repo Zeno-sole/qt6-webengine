@@ -1,6 +1,10 @@
 qt6-webengine (6.8.0-0deepin) unstable; urgency=medium
 
+  [ lichenggang ]
   * New upstream release (6.8.0).
+
+  [ Tian ShiLin ]
+  * fix  Optimizing compilation parameters. 
 
  -- lichenggang <lichenggang@deepin.org>  Fri, 25 Oct 2024 17:15:18 +0800
 

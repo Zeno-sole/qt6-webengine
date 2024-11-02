@@ -519,8 +519,8 @@ def WriteGNNinja(path, platform, host, options, args_list):
       cflags.append('-fsanitize=undefined')
       ldflags.append('-fsanitize=undefined')
 
-    if not options.allow_warnings:
-      cflags.append('-Werror')
+ #   if not options.allow_warnings:
+ #     cflags.append('-Werror')
 
     cflags.extend([
         '-D_FILE_OFFSET_BITS=64',
