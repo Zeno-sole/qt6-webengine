@@ -67,6 +67,8 @@ usr/include/${DEB_HOST_MULTIARCH}/qt6/QtWebEngineCore/qwebengineurlrequestjob.h
 usr/include/${DEB_HOST_MULTIARCH}/qt6/QtWebEngineCore/qwebengineurlscheme.h
 usr/include/${DEB_HOST_MULTIARCH}/qt6/QtWebEngineCore/qwebengineurlschemehandler.h
 usr/include/${DEB_HOST_MULTIARCH}/qt6/QtWebEngineCore/qwebenginewebauthuxrequest.h
+usr/include/${DEB_HOST_MULTIARCH}/qt6/QtWebEngineCore/*
+usr/include/${DEB_HOST_MULTIARCH}/qt6/QtWebEngineQuick/*
 usr/include/${DEB_HOST_MULTIARCH}/qt6/QtWebEngineQuick/QQuickWebEngineProfile
 usr/include/${DEB_HOST_MULTIARCH}/qt6/QtWebEngineQuick/QtWebEngineQuick
 usr/include/${DEB_HOST_MULTIARCH}/qt6/QtWebEngineQuick/QtWebEngineQuickDepends
@@ -95,6 +97,7 @@ usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6Designer/Qt6QWebEngineViewPluginConfigVer
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6Designer/Qt6QWebEngineViewPluginConfigVersionImpl.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6Designer/Qt6QWebEngineViewPluginTargets-none.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6Designer/Qt6QWebEngineViewPluginTargets.cmake
+usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineCore/Qt6WebEngineCoreVersionlessAliasTargets.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineCore/Qt6WebEngineCoreAdditionalTargetInfo.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineCore/Qt6WebEngineCoreConfig.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineCore/Qt6WebEngineCoreConfigVersion.cmake
@@ -113,6 +116,7 @@ usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineCoreTools/Qt6WebEngineCoreToolsD
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineCoreTools/Qt6WebEngineCoreToolsTargets-none.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineCoreTools/Qt6WebEngineCoreToolsTargets.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineCoreTools/Qt6WebEngineCoreToolsVersionlessTargets.cmake
+usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineQuick/Qt6WebEngineQuickVersionlessAliasTargets.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineQuick/Qt6WebEngineQuickAdditionalTargetInfo.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineQuick/Qt6WebEngineQuickConfig.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineQuick/Qt6WebEngineQuickConfigVersion.cmake
@@ -121,6 +125,7 @@ usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineQuick/Qt6WebEngineQuickDependenc
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineQuick/Qt6WebEngineQuickTargets-none.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineQuick/Qt6WebEngineQuickTargets.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineQuick/Qt6WebEngineQuickVersionlessTargets.cmake
+usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineQuickDelegatesQml/Qt6WebEngineQuickDelegatesQmlVersionlessAliasTargets.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineQuickDelegatesQml/Qt6WebEngineQuickDelegatesQmlAdditionalTargetInfo.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineQuickDelegatesQml/Qt6WebEngineQuickDelegatesQmlConfig.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineQuickDelegatesQml/Qt6WebEngineQuickDelegatesQmlConfigVersion.cmake
@@ -128,6 +133,7 @@ usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineQuickDelegatesQml/Qt6WebEngineQu
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineQuickDelegatesQml/Qt6WebEngineQuickDelegatesQmlTargets-none.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineQuickDelegatesQml/Qt6WebEngineQuickDelegatesQmlTargets.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineQuickDelegatesQml/Qt6WebEngineQuickDelegatesQmlVersionlessTargets.cmake
+usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineWidgets/Qt6WebEngineWidgetsVersionlessAliasTargets.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineWidgets/Qt6WebEngineWidgetsAdditionalTargetInfo.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineWidgets/Qt6WebEngineWidgetsConfig.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6WebEngineWidgets/Qt6WebEngineWidgetsConfigVersion.cmake

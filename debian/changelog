@@ -1,4 +1,4 @@
-qt6-webengine (6.8.0-0deepin3) UNRELEASED; urgency=medium
+qt6-webengine (6.8.0-0deepin4) UNRELEASED; urgency=medium
 
   * fix build error
 

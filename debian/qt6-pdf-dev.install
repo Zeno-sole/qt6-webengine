@@ -50,6 +50,8 @@ usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6Pdf/Qt6PdfDependencies.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6Pdf/Qt6PdfTargets-none.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6Pdf/Qt6PdfTargets.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6Pdf/Qt6PdfVersionlessTargets.cmake
+usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6Pdf/Qt6PdfVersionlessAliasTargets.cmake 
+usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6PdfQuick/Qt6PdfQuickVersionlessAliasTargets.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6PdfQuick/Qt6PdfQuickAdditionalTargetInfo.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6PdfQuick/Qt6PdfQuickConfig.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6PdfQuick/Qt6PdfQuickConfigVersion.cmake
@@ -58,6 +60,7 @@ usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6PdfQuick/Qt6PdfQuickDependencies.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6PdfQuick/Qt6PdfQuickTargets-none.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6PdfQuick/Qt6PdfQuickTargets.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6PdfQuick/Qt6PdfQuickVersionlessTargets.cmake
+usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6PdfWidgets/Qt6PdfWidgetsVersionlessAliasTargets.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6PdfWidgets/Qt6PdfWidgetsAdditionalTargetInfo.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6PdfWidgets/Qt6PdfWidgetsConfig.cmake
 usr/lib/${DEB_HOST_MULTIARCH}/cmake/Qt6PdfWidgets/Qt6PdfWidgetsConfigVersion.cmake

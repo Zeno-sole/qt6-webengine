@@ -15,3 +15,5 @@ usr/lib/${DEB_HOST_MULTIARCH}/qt6/examples/webenginewidgets/recipebrowser/recipe
 usr/lib/${DEB_HOST_MULTIARCH}/qt6/examples/webenginewidgets/simplebrowser/simplebrowser
 usr/lib/${DEB_HOST_MULTIARCH}/qt6/examples/webenginewidgets/spellchecker/spellchecker
 usr/lib/${DEB_HOST_MULTIARCH}/qt6/examples/webenginewidgets/videoplayer/videoplayer
+usr/lib/${DEB_HOST_MULTIARCH}/qt6/examples/pdf/singlepage/pdfviewerquick
+usr/lib/${DEB_HOST_MULTIARCH}/qt6/examples/webenginewidgets/permissionbrowser/permissionbrowser
