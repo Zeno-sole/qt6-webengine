@@ -14,12 +14,14 @@ else
 	export DEB_BUILD_MAINT_OPTIONS = hardening=+all optimize=+lto
 endif
 
-#PARALLEL_OPTION = $(filter parallel=%,$(DEB_BUILD_OPTIONS))
-#ifneq (,$(PARALLEL_OPTION))
-#	NUMJOBS = $(patsubst parallel=%,%,$(PARALLEL_OPTION))
-#	export NINJAJOBS = -j$(NUMJOBS)
-#endif
+PARALLEL_OPTION = $(filter parallel=%,$(DEB_BUILD_OPTIONS))
+ifneq (,$(PARALLEL_OPTION))
+	NUMJOBS = $(patsubst parallel=%,%,$(PARALLEL_OPTION))
+	export NINJAJOBS = -j$(NUMJOBS)
+endif
 
+export LDFLAGS+=-Wl,--no-keep-memory
+export NINJAJOBS = -j4
 # Reduce memory consumption & parallelism on certain architectures
 ifeq (armhf, $(DEB_HOST_ARCH))
 	export LDFLAGS+=-Wl,--no-keep-memory
@@ -37,7 +39,6 @@ endif
 ifeq (amd64, $(DEB_HOST_ARCH))
 	export NINJAJOBS = -j16
 endif
-export NINJAJOBS = -j4
 
 %:
 	dh $@ --with pkgkde_symbolshelper --buildsystem=cmake+ninja
