@@ -14,11 +14,11 @@ else
 	export DEB_BUILD_MAINT_OPTIONS = hardening=+all optimize=+lto
 endif
 
-PARALLEL_OPTION = $(filter parallel=%,$(DEB_BUILD_OPTIONS))
-ifneq (,$(PARALLEL_OPTION))
-	NUMJOBS = $(patsubst parallel=%,%,$(PARALLEL_OPTION))
-	export NINJAJOBS = -j$(NUMJOBS)
-endif
+#PARALLEL_OPTION = $(filter parallel=%,$(DEB_BUILD_OPTIONS))
+#ifneq (,$(PARALLEL_OPTION))
+#	NUMJOBS = $(patsubst parallel=%,%,$(PARALLEL_OPTION))
+#	export NINJAJOBS = -j$(NUMJOBS)
+#endif
 
 # Reduce memory consumption & parallelism on certain architectures
 ifeq (armhf, $(DEB_HOST_ARCH))
@@ -31,6 +31,9 @@ ifeq (i386, $(DEB_HOST_ARCH))
 	export NINJAJOBS = -j2
 endif
 
+ifeq (arm64, $(DEB_HOST_ARCH))
+	export NINJAJOBS = -j2
+endif
 ifeq (amd64, $(DEB_HOST_ARCH))
 	export NINJAJOBS = -j16
 endif
@@ -42,9 +45,9 @@ export NINJAJOBS = -j4
 touch_files = src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/lighthouse/lighthouse-dt-bundle.js \
 	      src/3rdparty/chromium/third_party/devtools-frontend/src/front_end/third_party/lighthouse/report-assets/report-generator.js
 
-ifeq (loong64, $(DEB_HOST_ARCH))
-	TARGET_PATCH = patch_loong64
-endif
+#ifeq (loong64, $(DEB_HOST_ARCH))
+#	TARGET_PATCH = patch_loong64
+#endif
 
 ifeq (riscv64, $(DEB_HOST_ARCH))
 	USE_CC = clang-17
@@ -54,8 +57,8 @@ else
 	USE_CXX = g++
 endif
 
-patch_loong64:
-	patch -p1 < debian/patches/loong64.patch
+#patch_loong64:
+#	patch -p1 < debian/patches/loong64.patch
 
 override_dh_autoreconf: $(TARGET_PATCH)
 	dh_autoreconf
