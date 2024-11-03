@@ -1,5 +1,4 @@
 usr/lib/${DEB_HOST_MULTIARCH}/qt6/examples/pdf/multipage/multipage
-usr/lib/${DEB_HOST_MULTIARCH}/qt6/examples/pdf/pdfviewer/pdfviewerquick
 usr/lib/${DEB_HOST_MULTIARCH}/qt6/examples/pdfwidgets/pdfviewer/pdfviewerwidgets
 usr/lib/${DEB_HOST_MULTIARCH}/qt6/examples/webenginequick/lifecycle/lifecycle
 usr/lib/${DEB_HOST_MULTIARCH}/qt6/examples/webenginequick/quicknanobrowser/quicknanobrowser
