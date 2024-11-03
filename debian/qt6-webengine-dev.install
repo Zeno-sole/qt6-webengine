@@ -164,9 +164,3 @@ usr/lib/${DEB_HOST_MULTIARCH}/qt6/modules/WebEngineQuick.json
 usr/lib/${DEB_HOST_MULTIARCH}/qt6/modules/WebEngineQuickDelegatesQml.json
 usr/lib/${DEB_HOST_MULTIARCH}/qt6/modules/WebEngineWidgets.json
 usr/lib/${DEB_HOST_MULTIARCH}/qt6/plugins/designer/libqwebengineview.so
-usr/include/${DEB_HOST_MULTIARCH}/qt6/QtWebEngineQuick/QQuickWebEngineViewAccessible
-usr/include/${DEB_HOST_MULTIARCH}/qt6/QtWebEngineQuick/qquickwebengine_accessible.h
-usr/include/${DEB_HOST_MULTIARCH}/qt6/QtWebEngineQuick/render_widget_host_view_qt_delegate_quickwindow.h
-usr/include/${DEB_HOST_MULTIARCH}/qt6/QtWebEngineQuick/ui_delegates_manager.h
-usr/include/${DEB_HOST_MULTIARCH}/qt6/QtWebEngineWidgets/QWebEngineViewAccessible
-usr/include/${DEB_HOST_MULTIARCH}/qt6/QtWebEngineWidgets/qwebengine_accessible.h
