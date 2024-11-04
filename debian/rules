@@ -14,12 +14,6 @@ else
 	export DEB_BUILD_MAINT_OPTIONS = hardening=+all optimize=+lto
 endif
 
-PARALLEL_OPTION = $(filter parallel=%,$(DEB_BUILD_OPTIONS))
-ifneq (,$(PARALLEL_OPTION))
-	NUMJOBS = $(patsubst parallel=%,%,$(PARALLEL_OPTION))
-	export NINJAJOBS = -j$(NUMJOBS)
-endif
-
 export LDFLAGS+=-Wl,--no-keep-memory
 export NINJAJOBS = -j4
 # Reduce memory consumption & parallelism on certain architectures
@@ -105,7 +99,6 @@ override_dh_auto_configure:
 		-DCMAKE_CXX_COMPILER=/usr/bin/$(USE_CXX)
 
 override_dh_auto_build:
-	dh_auto_build -- WebEngineCore_sync_all_public_headers
 	dh_auto_build
 	dh_auto_build -- docs
 
